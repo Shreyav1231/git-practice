@@ -18,13 +18,40 @@
 5. ``` git log ``` lets you see all the commits you have made till date. The topmost being the most recent.
 
 ### Branches 
-I used to struggle with branches a lot before. Hopefully this makes it simpler.
 Let's say you are creating an app on the main branch, you want to test a new feature and so you create a new file. However, you don't want to disrupt the current code, you just want to test the new feature independently. This is when you use branches.
-To create a branch - ``` git branch branch-name ```
-To view all branches - ``` git branch -a ```
-To go to your branch - ``` git checkout branch-name ``` (the branch you are currently on is green with an astrisk)
-On your branch, you will see files from the main branch and can add your own stuff
-It's amazing to note that branches are independent of each other after the splitting point. But the branch will have data from the main ba
+1. To create a branch - ``` git branch branch-name ```
+2. To view all branches - ``` git branch -a ```
+3. To go to your branch - ``` git checkout branch-name ``` (the branch you are currently on is green with an astrisk)
+You can start working on your new feature in the branch. You can add and commit your changes. <br />
+Note that branches are independent of each other after the splitting point. But the branch will still inherit files from the main branch. <br />
+
+4. If you want to delete the branch but haven't merged it yet, run ``` git branch -D branch-name ``` from the main branch. If merged and want to delete the branch, run ``` git branch -D branch-name ```
+
+### Merges
+If you want to merge your feature branches into the main branch you should be on the main branch. Run ``` git checkout main ``` <br/>
+1. Run ``` git merge branch-name ``` to merge branch-name into the main branch.
+
+### Merge conflicts 
+Let's say colleague A was working on the html file on main and made some changes to it. Colleague B worked on the same html file and made some changes (as previously mentioned, files get inherited from main to the branches). This leads to a merge conflict. <br/>
+When colleague B merge the branch into the main branch, it raises a merge conflict. Merge conflicts are fixed in the main branch by specifying which changes the developer wants to accept.
+
+### Staging 
+Remember that when we run git status we can see 3 types of messages
+1. To be committed - This means that the files have been staged and will be included in your next commit.
+2. Not staged for commit - This means git is aware of the changes in your files, but they will not be included in the next commit.
+3. Untracked - Git is not aware of these files.
+<br/>
+``` git add ``` moves files to the staging area <br/>
+
+If you accidentally staged a file that you don't want to commit, you can run restore. However, here are a few notes to take before you do that. 
+
+1. ``` git restore ``` DISCARDS unstaged changes in a partially staged file.
+2. ``` git restore --staged filename-to-remove-from-stage ``` removes the file you didn't want to the stage from the stage. Unstaged changes are not deleted, it simply gets unstaged. The file now becomes untracked.
+3. ``` git restore --worktree --staged file-name ``` discards both staged and unstaged changes. It will use the last committed version of the file.
+
+## Working with multiple developers on the same project
+
+
 ## Sharing your repository with Github
 
 Ensure you have gh installed using your preferred package manager
