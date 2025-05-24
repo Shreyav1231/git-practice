@@ -39,9 +39,8 @@ When colleague B merge the branch into the main branch, it raises a merge confli
 Remember that when we run git status we can see 3 types of messages
 1. To be committed - This means that the files have been staged and will be included in your next commit.
 2. Not staged for commit - This means git is aware of the changes in your files, but they will not be included in the next commit.
-3. Untracked - Git is not aware of these files.
-<br/>
-``` git add ``` moves files to the staging area <br/>
+3. Untracked - Git is not aware of these files. <br/>
+``` git add ``` moves files to the staging area 
 
 If you accidentally staged a file that you don't want to commit, you can run restore. However, here are a few notes to take before you do that. 
 
@@ -50,6 +49,15 @@ If you accidentally staged a file that you don't want to commit, you can run res
 3. ``` git restore --worktree --staged file-name ``` discards both staged and unstaged changes. It will use the last committed version of the file.
 
 ## Working with multiple developers on the same project
+To build on another developer's project 
+1. Copy the project (Fork)
+2. Make desired changes to the code
+3. Request the owner to update the code base (Pull Request)
+4. The owner can merge the pull request <br/>
+
+Forking vs Branching - <br />
+fork when you want to create an independent project, contribute to open-source projects, or experiment with significant changes in the project that might not be accepted by the original project.
+When you need to work on a new feature or bug fix without disrupting the main codebase, you should branch.
 
 
 ## Sharing your repository with Github
