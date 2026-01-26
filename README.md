@@ -69,4 +69,5 @@ Ensure you have gh installed using your preferred package manager
 Note that now when you run ``` git log ```, you will see something like ``` commit abcdef12345 (HEAD -> main, origin/main) ``` which means your local main is exactly in sync with the remote origin/main.
 
 
-TBC
+Tips - 
+1. Go back one commit ```git reset --hard HEAD~1```
