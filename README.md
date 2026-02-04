@@ -68,6 +68,40 @@ Ensure you have gh installed using your preferred package manager
 2. Ensure you add a remote origin and push
 Note that now when you run ``` git log ```, you will see something like ``` commit abcdef12345 (HEAD -> main, origin/main) ``` which means your local main is exactly in sync with the remote origin/main.
 
+## Subdirectories 
+1. Say you have a directory with many subdirectories.
+2. Parent - git init .
+3. To selectively stage files from specific directories - ```git add subdir```
+4. If a subdirectory contains its own .git folder (nested repo), Git will treat it as a submodule by default and won't track its contents directly.
+5. Git does not track empty directories. Hence, you might want to add one file inside of it ```.gitignore```
+
+### Explain these branch names thingies like I am 5 
+(One day I will understand)
+For example - 
+```
+* 88e98d3 (HEAD) changed Makefile
+* eabf7e1 problem 4 done
+* a387c31 mysh_v4 changes
+* 8d8710e (master) ctrlc_handler added
+* f5d7a5c v4
+* a1e3dfa first commit
+```
+#### Remember - 
+
+origin/master - The master branch on GitHub (not Git)
+HEAD - Where you are right now (usually pointing to master)
+master - Your local master branch 
+
+What this example means - 
+1. HEAD - I am currently at commit 88e98d3
+2. master - The master branch is at commit 8d8710e
+They are not at the same commit!
+Head is 2 commits ahead of master. I am in a detached HEAD state. This usually happens when you checked out at a specific commit and kept working. 
+If you want these new commits on your master branch:
+```git checkout master```
+```git merge 88e98d3```
+
+(I hope the specific example helps!)
 
 ## Magical Tips - 
 1. Go back one commit ```git reset --hard HEAD~1```
