@@ -88,9 +88,9 @@ For example -
 ```
 #### Remember - 
 
-origin/master - The master branch on GitHub (not Git)
-HEAD - Where you are right now (usually pointing to master)
-master - Your local master branch 
+1. origin/master - The master branch on GitHub (not Git)
+2. HEAD - Where you are right now (usually pointing to master)
+3. master - Your local master branch 
 
 What this example means - 
 1. HEAD - I am currently at commit 88e98d3
