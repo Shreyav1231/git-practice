@@ -105,3 +105,9 @@ If you want these new commits on your master branch:
 
 ## Magical Tips - 
 1. Go back one commit ```git reset --hard HEAD~1```
+2. To unstage a file before you committed ```git reset HEAD --filename```
+3. To unmodify a modified file ```git checkout --filename```
+
+## SAQs (Shreya asked questions)
+1. What is the difference between reset and restore anyway?
+   Ans - restore is for file-level stuff and reset is for branch level (more intense, can be used to delete commits) stuff
