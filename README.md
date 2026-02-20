@@ -75,8 +75,18 @@ Note that now when you run ``` git log ```, you will see something like ``` comm
 4. If a subdirectory contains its own .git folder (nested repo), Git will treat it as a submodule by default and won't track its contents directly.
 5. Git does not track empty directories. Hence, you might want to add one file inside of it ```.gitignore```
 
-### Explain these branch names thingies like I am 5 
-(One day I will understand)
+(I hope the specific example helps!)
+
+## Magical Tips - 
+1. Go back one commit ```git reset --hard HEAD~1```
+2. To unstage a file before you committed ```git reset HEAD --filename```
+3. To unmodify a modified file ```git checkout --filename```
+
+## SAQs (Shreya asked questions)
+1. What is the difference between reset and restore anyway?
+   Ans - restore is for file-level stuff and reset is for branch level (more intense, can be used to delete commits) stuff
+
+2. Explain these branch names thingies like I am 5 
 For example - 
 ```
 * 88e98d3 (HEAD) changed Makefile
@@ -100,14 +110,3 @@ Head is 2 commits ahead of master. I am in a detached HEAD state. This usually h
 If you want these new commits on your master branch:
 ```git checkout master```
 ```git merge 88e98d3```
-
-(I hope the specific example helps!)
-
-## Magical Tips - 
-1. Go back one commit ```git reset --hard HEAD~1```
-2. To unstage a file before you committed ```git reset HEAD --filename```
-3. To unmodify a modified file ```git checkout --filename```
-
-## SAQs (Shreya asked questions)
-1. What is the difference between reset and restore anyway?
-   Ans - restore is for file-level stuff and reset is for branch level (more intense, can be used to delete commits) stuff
