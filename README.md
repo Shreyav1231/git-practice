@@ -78,7 +78,7 @@ Note that now when you run ``` git log ```, you will see something like ``` comm
 (I hope the specific example helps!)
 
 ## Magical Tips - 
-1. Go back one commit ```git reset --hard HEAD~1```
+1. Go back to a commit and rewrite history ```git reset --hard <commit hash>```
 2. To unstage a file before you committed ```git reset HEAD --filename```
 3. To unmodify a modified file ```git checkout --filename```
 
