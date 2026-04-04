@@ -110,3 +110,25 @@ Head is 2 commits ahead of master. I am in a detached HEAD state. This usually h
 If you want these new commits on your master branch:
 ```git checkout master```
 ```git merge 88e98d3```
+
+## Accidentally pushed .env files?
+
+This week, I saw two of my friends (working on unrelated projects) push .env files to their repo in certain commits. Happens, you live and you learn! The problem was we saw these mistakes very late into the projects, so git reset to rewrite history would be messy and confusing. So we chose the route of deleting only the .env files from the problematic commits.   > Removing .env files from certain commits involves searching for those files in the remote repo and rewriting history (if you don’t want to delete commits)  I used git filter-repo with the invert-paths flag to remove a specific file from the history 
+
+```git filter-repo --path-glob ‘.env*' --invert-paths --force```
+
+- This command basically says rewrite history including everything but the specified file from every commit in the repo’s history
+
+- Because this command rewrote history, your local version does not match the remote version
+
+- You will have to run ```git remote add origin <url>``` followed by ```git push --force-with-lease origin <branch name>```
+
+- I learnt that ```--force-with-lease``` is safer than —force because it prevents you from overwriting commits that were made in the meanwhile
+
+- Because history is rewritten, you will have to run ```git fetch```
+
+- Normal git pull won't work, you have to reset your local branch to match remote 
+```git reset --hard origin/<branch name>```
+
+[!WARNING] make sure you stash local changes if any before you do this 
+
