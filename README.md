@@ -113,8 +113,9 @@ If you want these new commits on your master branch:
 
 ## Accidentally pushed .env files?
 
-This week, I saw two of my friends (working on unrelated projects) push .env files to their repo in certain commits. Happens, you live and you learn! The problem was we saw these mistakes very late into the projects, so git reset to rewrite history would be messy and confusing. So we chose the route of deleting only the .env files from the problematic commits.   > Removing .env files from certain commits involves searching for those files in the remote repo and rewriting history (if you don’t want to delete commits)  I used git filter-repo with the invert-paths flag to remove a specific file from the history 
+This week, I saw two of my friends (working on unrelated projects) push .env files to their repo in certain commits. Happens, you live and you learn! The problem was we saw these mistakes very late into the projects, so git reset to rewrite history would be messy and confusing. So we chose the route of deleting only the .env files from the problematic commits.   
 
+- Removing .env files from certain commits involves searching for those files in the remote repo and rewriting history (if you don’t want to delete commits)  I used git filter-repo with the invert-paths flag to remove a specific file from the history 
 ```git filter-repo --path-glob ‘.env*' --invert-paths --force```
 
 - This command basically says rewrite history including everything but the specified file from every commit in the repo’s history
